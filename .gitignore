@@ -1,0 +1,8 @@
+*/bin
+*/obj
+*.idea
+*/swish2.db
+*/identity.db
+*/profile.db
+*.dll
+*.pdb

@@ -1,0 +1,161 @@
+﻿@using SwishIdentity.Data
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<SwishUser> _signInManager
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>@ViewData["Title"] - Swish Online</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="~/css/site.css"/>
+</head>
+<body>
+<header>
+    <div class="topmenu">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                    <div class="logo">
+                        swish.id
+                    </div>
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                    <partial name="_LoginPartial"/>
+                    @if (_signInManager.IsSignedIn(User))
+                    {
+                        <ul class="navbar-nav flex-grow-1">
+                            <li class="nav-item">
+                                <form method="get" class="form-inline" style="justify-content:center" asp-area="profile" asp-page="/index">
+                                    <button class="nav-button button-spacing ">
+                                        @*<svg width="140" height="50" class="svgbox">
+                                            <path fill="currentColor" d="M14.72,8.79l-4.29,4.3L8.78,11.44a1,1,0,1,0-1.41,1.41l2.35,2.36a1,1,0,0,0,.71.29,1,1,0,0,0,.7-.29l5-5a1,1,0,0,0,0-1.42A1,1,0,0,0,14.72,8.79ZM12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm0,18a8,8,0,1,1,8-8A8,8,0,0,1,12,20Z"/>
+                                        </svg>*@
+                                        <strong>🆔</strong><small>Verified</small>
+                                    </button>
+                                </form>
+                            </li>
+                            @if (User.IsInRole("MANAGER"))
+                            {
+                                <li class="nav-item">
+                                    <form method="get" class="form-inline" style="justify-content:center" asp-area="manager" asp-page="/index">
+                                        <button class="nav-button button-spacing">
+                                            <strong>🏢</strong><small>For Business</small>
+                                        </button>
+                                    </form>
+                                </li>
+                            }
+                            else
+                            {
+                                <li class="nav-item">
+                                    <form method="get" class="form-inline" style="justify-content:center" asp-area="manager" asp-page="/managerRequest">
+                                        <button class="nav-button button-spacing">
+                                            <strong>🏢</strong><small>For Business</small>
+                                        </button>
+                                    </form>
+                                </li>
+                            }
+                            @if (User.IsInRole("ADMIN"))
+                            {
+                                <li class="nav-item">
+                                    <a type="submit" class="nav-button button-spacing" href="/admin"><strong>Admin</strong></a>
+                                </li>
+                            }
+                        </ul>
+                    }
+                </div>
+            </div>
+        </nav>
+    </div>
+</header>
+<div class="container">
+    <main role="main" class="pb-3">
+        @RenderBody()
+    </main>
+</div>
+
+<footer class="border-top footer text-muted">
+    <div class="container">
+        &copy; 2021 - Swish Identity, Inc. - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    </div>
+</footer>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+@RenderSection("Scripts", false)
+</body>
+</html>
+
+<style>
+    .path {
+        justify-content: center; 
+        height: inherit; 
+        width: inherit;
+    }
+    .svg {
+        margin: 0;
+        text-align: center;
+        justify-content: center;
+        vertical-align: center;
+    }
+    .svgbox {
+        justify-content: right;
+    }
+    .topmenu
+    {
+        background-color: black !important; 
+    }
+    
+    button.navbar-toggler{
+        background-color: white;
+    }
+
+    .topmenu a {
+        color: white !important;
+    }
+    
+    .topmenu a:hover{
+        color: grey !important;
+    }
+    
+    .footer {
+        background-color: #F5F5F5 !important;
+    }
+    
+    a {
+        color: black;
+    }
+   
+    .logo {
+        font-weight: 700;
+        font-size: 1.75rem;
+        color: white;
+    }
+    
+    .button-spacing {
+        margin-left: 2%;
+        margin-right: 2%;
+        height: 50px;
+        width: 140px;
+        padding: 0;
+    }
+    
+    .nav-button {
+        display: inline-block;
+        text-decoration: none;
+        background: black;
+        color: white;
+        font-weight: 500;
+        padding: 0;
+    }
+    
+    .nav-button:hover{
+        background: white;
+        color: black;
+    }
+    
+</style>

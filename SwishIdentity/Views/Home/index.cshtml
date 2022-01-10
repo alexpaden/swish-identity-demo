@@ -1,0 +1,315 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>swish.id - Online Identity</title>
+</head>
+<body>
+    <style>
+        @@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+        
+        * {
+            font-family: 'DM Sans', sans-serif;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+            top: 0;
+            left: 0;
+            margin: 0;
+        }
+
+        body {
+            background: linear-gradient(90deg, #000 0%, #000 50%, #fFF 50%);
+        }
+
+        .navigation {
+            display: flex;
+            margin-bottom: 4rem;
+            align-items: center;
+        }
+
+        .buttons {
+            margin-left: auto;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 0.5rem 1.25rem;
+            text-decoration: none;
+            background: black;
+            color: white;
+            font-weight: 500;
+        }
+
+        .button--white {
+            color: black;
+            background: white;
+        }
+
+        .max-width {
+            max-width: 1600px;
+            margin: auto;
+            padding: 1rem;
+            background: linear-gradient(90deg, #000 0%, #000 70%, #fFF 70%);
+            min-height: 100%;
+        }
+
+        .navigation .button--white {
+            margin-left: 1rem;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.75rem;
+            color: white;
+        }
+
+        ::-moz-selection { /* Code for Firefox */
+            color: black;
+            background: white;
+        }
+
+        ::selection {
+            color: black;
+            background: white;
+        }
+
+        .content {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .left {
+            width: 60%;
+            padding-right: 1rem;
+        }
+
+        .right {
+            width: 40%;
+            padding-left: 1rem;
+        }
+
+        .heading {
+            font-size: 5.5rem;
+            color: white;
+            line-height: 1.1em;
+            margin: 0;
+            margin-bottom: 4rem;
+        }
+
+        .cards {
+            width: 100%;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .card {
+            padding: 1.25rem;
+            background: white;
+            display: inline-block;
+            max-width: 325px;
+            margin-right: 1.5rem;
+        }
+
+        .card__title {
+            font-size: 1.25rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .card__text {
+            margin: 0;
+            font-size: 0.95rem;
+            line-height: 1.4em;
+        }
+
+        .card__icon {
+            height: 2.75rem;
+            width: 2.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .card__icon svg {
+            color: black;
+            max-height: 100%;
+            max-width: 100%;
+        }
+
+        .card *::-moz-selection { /* Code for Firefox */
+            color: white;
+            background: black;
+        }
+
+        .card *::selection {
+            color: white;
+            background: black;
+        }
+
+        .whitepaper {
+            position: relative;
+            width: 100%;
+            padding-bottom: 129%;
+        }
+
+        .whitepaper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            border: 0;
+        }
+
+        .buttons--mobile {
+            display: none;
+        }
+
+        .mobile--iframe {
+            display: none;
+        }
+
+        @@media screen and (max-width: 1260px){
+            .mobile--iframe {
+                display: block;
+            }
+
+            .desktop--iframe {
+                display: none;
+            }
+
+            .buttons--mobile {
+                display: block;
+                margin-bottom: 3rem;
+            }
+
+            .buttons--mobile .button {
+                margin-right: 1rem;
+            }
+
+            .navigation .buttons {
+                display: none;
+            }
+
+            .max-width {
+                background: #000;
+                padding-bottom: 0;
+            }
+
+            .heading {
+                font-size: 3rem;
+                margin-bottom: 2rem;
+            }
+
+            .button {
+                padding: 0.75rem 2rem;
+            }
+
+            .left, .right {
+                width: 100%;
+                padding: 0;
+            }
+
+            .right {
+                width: calc(100% + 2rem);
+                margin: 0 -1rem;
+                background: white;
+                padding: 2rem;
+            }
+
+            .whitepaper {
+                margin-top: -8rem;
+            }
+
+            .left {
+                padding-bottom: 10rem;
+            }
+
+            .cards {
+                overflow-x: auto;
+            }
+
+            .card {
+                min-width: 300px;
+            }
+        }
+    </style>
+
+    <div class="max-width">
+        <div class="navigation">
+            <div class="logo">
+                swish.id
+            </div>
+    
+            <div class="buttons">
+                <a href="/account/register" class="button">
+                    <strong>🆕</strong><small>Register</small>
+                </a>
+                <a href="/account/login" class="button button--white">
+                    <strong>🔑</strong><small>Login</small>
+                </a>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="left">
+                <h1 class="heading">
+                    Online identity<br>
+                    made simple
+                </h1>
+                <div class="buttons--mobile">
+                    <a href="/account/register" class="button button--white">
+                        Register
+                    </a>
+                    <a href="/account/login" class="button">
+                        Login
+                    </a>
+                </div>
+                <div class="cards">
+                    <div class="card">
+                        <div class="card__icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="currentColor" d="M14.72,8.79l-4.29,4.3L8.78,11.44a1,1,0,1,0-1.41,1.41l2.35,2.36a1,1,0,0,0,.71.29,1,1,0,0,0,.7-.29l5-5a1,1,0,0,0,0-1.42A1,1,0,0,0,14.72,8.79ZM12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm0,18a8,8,0,1,1,8-8A8,8,0,0,1,12,20Z"/></svg>
+                        </div>
+                        <span class="card__title">
+                            Verified Accounts
+                        </span>
+                        <p class="card__text">
+                            <b style="color:red">*</b> Identity verified internet user.<br>
+                            <b style="color:red">*</b> Privacy based data policy.<br>
+                            <b style="color:red">*</b> Login anywhere using your real identity.<br>
+                        </p>
+                    </div>
+                    <div class="card">
+                        <div class="card__icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" viewBox="0 0 24 24"><path fill="currentColor" d="M10.94,6.08A6.93,6.93,0,0,1,12,6c3.18,0,6.17,2.29,7.91,6a15.23,15.23,0,0,1-.9,1.64,1,1,0,0,0-.16.55,1,1,0,0,0,1.86.5,15.77,15.77,0,0,0,1.21-2.3,1,1,0,0,0,0-.79C19.9,6.91,16.1,4,12,4a7.77,7.77,0,0,0-1.4.12,1,1,0,1,0,.34,2ZM3.71,2.29A1,1,0,0,0,2.29,3.71L5.39,6.8a14.62,14.62,0,0,0-3.31,4.8,1,1,0,0,0,0,.8C4.1,17.09,7.9,20,12,20a9.26,9.26,0,0,0,5.05-1.54l3.24,3.25a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42Zm6.36,9.19,2.45,2.45A1.81,1.81,0,0,1,12,14a2,2,0,0,1-2-2A1.81,1.81,0,0,1,10.07,11.48ZM12,18c-3.18,0-6.17-2.29-7.9-6A12.09,12.09,0,0,1,6.8,8.21L8.57,10A4,4,0,0,0,14,15.43L15.59,17A7.24,7.24,0,0,1,12,18Z"/></svg>
+                        </div>
+                        <span class="card__title">
+                            Incognito Accounts
+                        </span>
+                        <p class="card__text">
+                            <b style="color:red">*</b> Anonymous internet accounts.<br>
+                            <b style="color:red">*</b> Login anywhere without identity.<br>
+                            <b style="color:red">*</b> Coming soon...<br>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="right">
+                <div class="whitepaper">
+                    <iframe src="https://docs.google.com/viewer?url=https://swish.id/Swish2.0%20White%20Paper%20PDF.pdf&embedded=true" class="mobile--iframe"></iframe>
+                    <iframe src="https://swish.id/Swish2.0%20White%20Paper%20PDF.pdf#toolbar=0" class="desktop--iframe"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

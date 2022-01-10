@@ -1,0 +1,56 @@
+@page
+@model HistoryModel
+@{
+    Layout = "_Layout.cshtml";
+    ViewData["Title"] = "Profile History";
+    ViewData["ActivePage"] = ProfileNavPages.History;
+}
+<div class="profile-container shadow">
+    <h4>@ViewData["Title"]</h4>
+    <p>Your identity profile update history.</p>
+    <br><br>
+    <div class="row">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Full Name</th>
+                <th>Account Status</th>
+                <th>Country</th>
+                <th>Datetime</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var item in Model.ProfileHistory)
+            {
+                <tr>
+                    <td>
+                        @item["FullName"]
+                        
+                    </td>
+                    <td>
+                        @item["Roles"]
+                    </td>
+                    <td>
+                        @item["Country"]
+                    </td>
+
+                    <td>
+                        @item["Datetime"]
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<style>
+    .profile-container {
+        margin: 5%;
+        padding: 5%;
+    }
+</style>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

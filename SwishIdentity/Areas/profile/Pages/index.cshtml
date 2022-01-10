@@ -1,0 +1,62 @@
+@page
+@model IndexModel
+@{
+    Layout = "_Layout.cshtml";
+    ViewData["Title"] = "Profile";
+    ViewData["ActivePage"] = ProfileNavPages.Index;
+}
+<div class="profile-container shadow">
+    <h4>@ViewData["Title"]</h4>
+    <div class="row">
+        <div class="col-md-5">
+            <p>This page includes information about your swish online identity profile.</p>
+        </div>
+        
+        <div class="col-md-auto">
+            <small><b>Full Name</b></small><br>
+            <small>@Model.Profile.Name</small>
+            
+            <br><small><b>Country</b></small><br>
+            <small>@Model.Profile.Country</small>
+            
+            <br><small><b>Shared Email</b></small><br>
+            <small>@Model.Profile.SharedEmail</small>
+            
+            <br><small><b>Verification Status</b></small><br>
+            <small>@Model.VerifStatus</small>
+            
+        </div>
+    </div>
+    <br><br><br>
+    <div class="row">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Manager Id</th>
+                <th>Business Name</th>
+                <th>Public Lookup @*buttons*@</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var item in @Model.MangList) {
+                <tr>
+                    <td><small>@item.ManagerId</small></td>
+                    <td>@item.BusinessName</td>
+                    <td><a class="table-button" asp-area="Verif" asp-page="./MangLookup" asp-route-id="@item.ManagerId">Review</a></td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<style>
+    .profile-container {
+        margin: 5%;
+        padding: 5%;
+    }
+</style>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

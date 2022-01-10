@@ -1,0 +1,47 @@
+@page
+@model UpdateModel
+@{
+    Layout = "_Layout.cshtml";
+    ViewData["Title"] = "Update Swish Profile";
+    ViewData["ActivePage"] = ProfileNavPages.Update;
+    var isPending = User.IsInRole("PENDING");
+}
+<div class="profile-container shadow">
+    <h4>@ViewData["Title"]</h4>
+    <br><br>
+
+    <div class="row justify-content-center">
+        @{
+            if (!@isPending)
+            {
+                <div class="col-md-6 text-center">
+                    <form id="profile-update-form" method="post">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="form-group">
+                            <label asp-for="FullName">Full Name</label>
+                            <input asp-for="Input.NewFullName" class="form-control"/>
+                            <br>
+                            <label asp-for="Country">Country</label>
+                            <input asp-for="Input.NewCountry" class="form-control"/>
+                            <br>
+                            <label asp-for="SharedEmail">
+                                Shared Email <i>(visible to managers)</i>
+                            </label>
+                            <input asp-for="Input.NewSharedEmail" class="form-control"/>
+                        </div>
+                        <button id="update-profile-button" type="submit" class="btn btn-primary">Save</button>
+                    </form>
+                </div>
+            }
+            else
+            {
+                <div class="col-md-6">
+                    <strong>Your profile verification is pending. Please allow up to 24 hours.</strong>
+                </div>
+            }
+        }
+    </div>
+</div>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

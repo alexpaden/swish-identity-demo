@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SwishIdentity", "SwishIdentity\SwishIdentity.csproj", "{64D3DA0C-9910-480B-AF3F-703294820DBB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SwishIdentity.Tools", "SwishIdentity.Tools\DependencyService\SwishIdentity.Tools.csproj", "{F9409239-1A7E-459B-848F-F1047228E17B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SwishIdentity.Data", "SwishIdentity.Data\SwishIdentity.Data.csproj", "{6E5DDF00-2753-4655-93BB-A75FADB848E7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{64D3DA0C-9910-480B-AF3F-703294820DBB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64D3DA0C-9910-480B-AF3F-703294820DBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64D3DA0C-9910-480B-AF3F-703294820DBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64D3DA0C-9910-480B-AF3F-703294820DBB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9409239-1A7E-459B-848F-F1047228E17B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9409239-1A7E-459B-848F-F1047228E17B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9409239-1A7E-459B-848F-F1047228E17B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9409239-1A7E-459B-848F-F1047228E17B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E5DDF00-2753-4655-93BB-A75FADB848E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E5DDF00-2753-4655-93BB-A75FADB848E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E5DDF00-2753-4655-93BB-A75FADB848E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E5DDF00-2753-4655-93BB-A75FADB848E7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

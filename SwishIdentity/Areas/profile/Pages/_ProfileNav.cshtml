@@ -1,0 +1,31 @@
+@{
+    var isAlien = User.IsInRole("ALIEN");
+}
+
+<ul class="nav nav-pills flex-column">
+    <li class="nav-item rounded-pill"><a class="nav-link @ProfileNavPages.HomeNavClass(ViewContext)" id="index" asp-page="./index">Home</a></li>
+    @if (@isAlien)
+    {
+        <li class="nav-item rounded-pill"><a class="nav-link @ProfileNavPages.CreateNavClass(ViewContext)" id="create" asp-page="./create">Create New Profile</a></li>
+    }
+    else
+    {
+        <li class="nav-item rounded-pill"><a class="nav-link @ProfileNavPages.UpdateNavClass(ViewContext)" id="update" asp-page="./update">Update My Profile</a></li>
+                                                                                                                                        
+        <li class="nav-item rounded-pill"><a class="nav-link @ProfileNavPages.HistoryNavClass(ViewContext)" id="history" asp-page="./history">Profile History</a></li>
+    }
+</ul>
+
+<style>
+    .nav-pills{
+        background-color: #32363A;
+    }
+    
+    .nav a{
+        color: white;
+    }
+    
+    .nav-link.active {
+        background-color: black !important;
+    }
+</style>

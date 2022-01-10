@@ -1,0 +1,51 @@
+@page
+@model ManagerRequestModel
+@{
+    Layout = "_Layout.cshtml";
+    ViewData["Title"] = "Request Manager Access";
+    ViewData["ActivePage"] = ManagerNavPages.Request;
+}
+<div class="manager-container shadow">
+    <h4>@ViewData["Title"]</h4>
+
+    <div class="row">
+        <div class="col-md-6">
+            <ul title="Requirements">
+                <li>A Verified Swish Profile</li>
+                <li>2FA Security Enabled</li>
+                <li>Reason for connecting with Swish users</li>
+            </ul>
+        
+            <br><br>
+        
+            <form id="manager-form" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Reason"></label>
+                    <input asp-for="Input.NewReason" class="form-control"/>
+                    <br>
+                    <label asp-for="BusinessName">Business Name (DBA)</label>
+                    <input asp-for="Input.NewBusinessName" class="form-control"/>
+                    <br>
+                    <label asp-for="BusinessEmail">Business Email</label>
+                    <input asp-for="Input.NewBusinessEmail" class="form-control"/>
+                </div>
+                <button id="request-manager-button" type="submit" class="btn btn-primary">Request manager account</button>
+            </form>
+        </div>
+        @if (@Model.Existed)
+        {
+            <div class="col-md-3">
+                <h4>Request Status:</h4>
+                <li> Manager Request</li>
+                <ul>pending</ul>
+                <li> Profile Verification </li>
+                @foreach (var role in @Model.ProfileVerifRoles)
+                {<ul>@role.ToLowerInvariant()</ul>}
+            </div>
+        }
+    </div>
+</div>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

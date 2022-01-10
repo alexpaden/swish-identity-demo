@@ -1,0 +1,90 @@
+﻿@page
+<div class="page-full">
+
+    <div class="row hint-container text-center justify-content-center">
+        <div class="col-8 hint-box justify-content-center shadow">
+            <h2 class="shadow" style="color: black;">Why Swish Online?</h2>
+            <ul style="color: black">
+                <li>Access to Swish verified user network.</li>
+                <li>Beyond industry standard data security.</li>
+                <li>Free identity verification on new user signups.</li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="row account-type-container">
+        <div class="col-md background-black text-center">
+            <img src="~/incognito.png" class="justify-content-center">
+            <h2 class="font-weight-bolder">Incognito Account</h2>
+            <ul>
+                <li>Anonymous Internet Identity</li>
+                <li>Coming soon...</li>
+            </ul>
+        </div>
+        <div class="col-md background-black text-center">
+            <img src="~/verified.png" class="justify-content-center" style="width:150px; height: 150px;">
+            <h2 class="font-weight-bolder">Verified Account</h2>
+            <ul>
+                <li style="">Professional identity verification</li>
+                <li>Simple data management</li>
+                <li>Visibility over who you connect with</li>
+            </ul>
+        </div>
+    </div>
+    <div class="pdf-container">
+        <h2 style="color: white">The Swish Whitepaper</h2>
+        <div class="row pdf">
+            <embed src="~/Swish2.0 White Paper PDF.pdf" style="width: 100%; height: 800px; overflow: hidden;"/>
+        </div>
+    </div>
+</div>
+
+
+<style>
+    .account-type-container{
+        height: 350px;
+        text-shadow: white;
+    }
+    .page-full{
+        margin-top: 10%;
+    }
+    .pdf-container {
+        margin: 10%;
+    }
+    .hint-container{
+        background-color: #32363A;
+        border: #F5F5F5;
+        border-style: solid;
+        border-width: thin;
+        height: fit-content;
+    }
+    .hint-container:hover{
+        background-color: white;
+    }
+    .hint-box{
+        background-color: #fcfcfc;
+        height: fit-content;
+        color: #CCCCCC;
+        margin: 6%;
+    }
+    .background-black{
+        background-color: black;
+        color: #F5F5F5;
+        border: #F5F5F5;
+        border-style: solid;
+        border-width: thin;
+    }
+    .background-black:hover{
+        border-color: limegreen;
+        background-color: #F5F5F5;
+        color: black;
+    }
+    body{
+        background-color: black;
+    }
+    ul {
+        list-style: none;
+        padding-left: 0;
+    }
+
+</style>

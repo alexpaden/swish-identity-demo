@@ -1,0 +1,66 @@
+@page
+@using SwishIdentity.Areas.Admin.Pages
+@model SwishIdentity.Areas.Admin.Pages.VerifHistoryModel
+@{
+    Layout = "_Layout.cshtml";
+    ViewData["ActivePage"] = AdminNavPages.VerifHistory;
+}
+@{
+    ViewData["Title"] = "Verification History";
+}
+
+<h4>@ViewData["Title"]</h4>
+<div class="col-md-3">
+    <partial name="_AdminNav"/>
+</div>
+<br><br>
+<div class="row">
+
+    @if (Model.ProfileHistory != null)
+    {
+        <p>Your identity profile update history</p>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Full Name</th>
+                <th>Date time</th>
+                <th>Front URL</th>
+                <th>Back URL</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var item in Model.ProfileHistory)
+            {
+                <tr>
+                    <td>
+                        @item["FullName"]
+
+                    </td>
+                    <td>
+                        @item["Datetime"]
+                    </td>
+                    <td>
+                        @item["ImgFrontUrl"]
+                    </td>
+                    <td>
+                        @item["ImgRearUrl"]
+                    </td>
+
+                </tr>
+            }
+            </tbody>
+        </table>
+    }
+    else if (Model.UserExist)
+    {
+        <strong>The user exists but the profile does not.</strong>
+    }
+    else
+    {
+        <strong>The profile/user do not exist.</strong>
+    }
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial"/>
+}

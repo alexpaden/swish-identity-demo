@@ -1,0 +1,14 @@
+@page
+@using SwishIdentity.Areas.Admin.Pages
+@model SwishIdentity.Areas.Admin.Pages.VerifyVerificationReviewModel
+@{
+    Layout = "_Layout.cshtml";
+    ViewData["Title"] = "Verify";
+    ViewData["ActivePage"] = AdminNavPages.VerificationReview;
+}
+
+<h4>@ViewData["Title"]</h4>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial"/>
+}

@@ -1,0 +1,71 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using SwishIdentity.Data
+@inject SignInManager<SwishUser> _signInManager
+@inject UserManager<SwishUser> _userManager
+
+<ul class="navbar-nav">
+    @if (_signInManager.IsSignedIn(User))
+    {
+        <li class="nav-item">
+            <form method="get" class="form-inline" style="justify-content:center" asp-area="security" asp-page="/Email">
+                <button type="submit" class="nav-button button-spacing">
+                    <strong>🔐</strong> <small>Security</small>
+                </button>
+            </form>
+        </li>
+        <li class="nav-item">
+            <form class="form-inline" style="justify-content:center" asp-area="account" asp-page="/logout" asp-route-returnUrl="@Url.Action("Index", "Home", new {area = ""})">
+                <button type="submit" class="logout-button button-spacing"><strong>❌</strong> <small>Logout</small></button>
+            </form>
+        </li>
+    }
+    else
+    {
+        <li class="nav-item">
+            <a class="btn nav-link text-dark" asp-area="account" asp-page="/register"><strong>🆕</strong> <small>Register</small></a>
+        </li>
+        <li class="nav-item">
+            <a class="btn nav-link text-dark" asp-area="account" asp-page="/login"><strong>🔑</strong> <small>Login</small></a>
+        </li>
+    }
+</ul>
+<style>
+    .navbar-nav{
+        
+    }
+    
+    .button-spacing {
+        margin-left: 2%;
+        margin-right: 2%;
+        height: 50px;
+        width: 140px;
+    }
+    
+    .nav-button {
+        display: inline-block;
+        padding: 0.5rem 1.25rem;
+        text-decoration: none;
+        background: black;
+        color: white;
+        font-weight: 500;
+    }
+    
+    .nav-button:hover{
+        background: white;
+        color: black;
+    }
+
+    .logout-button {
+        display: inline-block;
+        padding: 0.5rem 1.25rem;
+        text-decoration: none;
+        background: white;
+        color: black;
+        font-weight: 500;
+    }
+    
+    .logout-button:hover{
+        background: black;
+        color: white;
+    }
+</style>

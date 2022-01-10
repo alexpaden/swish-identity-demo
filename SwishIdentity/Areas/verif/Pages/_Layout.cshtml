@@ -1,0 +1,41 @@
+﻿@{
+    if (ViewData.TryGetValue("ParentLayout", out var parentLayout))
+    {
+        Layout = (string)parentLayout;
+    }
+    else
+    {
+        Layout = "/Views/Shared/_Layout.cshtml";
+    }
+}
+<div>
+    <h2>Online Identity</h2>
+    <h5><i>By Swish</i></h5>
+    <hr/>
+    <div class="row">
+        <div class="col-md-3">
+
+        </div>
+        <div class="col-md-9">
+            @RenderBody()
+        </div>
+    </div>
+</div>
+
+<style>
+    .btn-primary {
+        background-color: black;
+        color: white;
+    }
+    .navigation {
+        margin-top: 5%;
+    }
+    .verif-container {
+        margin: 5%;
+        padding: 5%;
+    }
+</style>
+
+@section Scripts {
+    @RenderSection("Scripts", required: false)
+}

@@ -1,0 +1,41 @@
+@page
+@model SwishIdentity.Areas.Manager.Pages.ShareModel
+@{
+    Layout = "_Layout.cshtml";
+    ViewData["Title"] = "Ready to work with identity verified users?";
+    ViewData["ActivePage"] = ManagerNavPages.Share;
+}
+<div class="manager-container shadow">
+    <h4>@ViewData["Title"]</h4>
+    <div class="row">
+        <div class="col-md-auto">
+            <img src="~/swish8ball.png" alt="Swish icon" height="100" width="100">
+            <br><br>
+            <h5>How to use Online Identity by Swish:</h5>
+            <ol>
+                <li>Update your account security options.</li>
+                <br>
+                <li>Copy your signup url.</li>
+                <br>
+                <li>Share your signup url with your customers.</li>
+                <br>
+                <li>Manage your customer identities on Swish.</li>
+                <br>
+                <li>Legal snag? 
+                    <ul>
+                        <small>* Contact Swish to retrieve fragmented documentation on your already verified customer.</small>
+                    </ul>
+                </li>
+                <br>
+            </ol>
+    
+    
+            <h5>Share this link with anyone:</h5>
+            <small>@Model.FullUrl</small>
+        
+        </div>
+    </div>
+</div>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

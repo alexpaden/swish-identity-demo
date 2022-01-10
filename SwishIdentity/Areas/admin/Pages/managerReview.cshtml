@@ -1,0 +1,66 @@
+@page
+@model SwishIdentity.Areas.Admin.Pages.ManagerReviewModel
+@{
+    Layout = "_Layout.cshtml";
+    ViewData["Title"] = "Admin";
+    //ViewData["ActivePage"] = AdminNavPages.Index;
+}
+
+<h4>@ViewData["Title"]</h4>
+
+<div class="row">
+    <table class="table">
+        <thead>
+        <tr>
+            <th>
+                Business Name
+            </th>
+            <th>
+                Reason
+            </th>
+            <th>
+                Profile Link
+            </th>
+            <th>
+                Approve/Deny
+                @*buttons*@
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in Model.Managers)
+        {
+            <tr>
+                <td>
+                    @item.BusinessName
+                </td>
+                <td>
+                    @item.Reason
+                </td>
+                <td>
+                    <button>Broken Profile Btn</button>
+                </td>
+                <td>
+                    <form id="mang-review" asp-page="ApproveManager" asp-route-id="@item.UserId" method="post" class="form-group">
+                        <button class="table-button" type="submit">Approve</button>
+                    </form>
+                    <form id="mang-review" asp-page="RejectManager" asp-route-id="@item.UserId" method="post" class="form-group">
+                        <button class="table-button" type="submit">Reject</button>
+                    </form>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+
+</div>
+
+<style>
+    .table-button {
+        color: black;
+    }
+</style>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial"/>
+}

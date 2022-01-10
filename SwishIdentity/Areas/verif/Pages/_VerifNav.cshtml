@@ -1,0 +1,21 @@
+@{
+    
+}
+
+<ul class="nav nav-pills flex-column">
+    <li class="nav-item"><a class="nav-link @VerifNavPages.HomeNavClass(ViewContext)" id="index" asp-page="./Index">Home</a></li>
+</ul>
+
+<style>
+    .nav-pills{
+        background-color: #32363A;
+    }
+    
+    .nav a{
+        color: white;
+    }
+    
+    .nav-link.active {
+        background-color: black !important;
+    }
+</style>

@@ -1,0 +1,29 @@
+@{
+    var isManager = User.IsInRole("MANAGER");
+}
+
+<ul class="nav nav-pills flex-column">
+    @if (@isManager)
+    {
+        <li class="nav-item"><a class="nav-link @ManagerNavPages.HomeNavClass(ViewContext)" id="index" asp-page="./Index">Home</a></li>
+        <li class="nav-item"><a class="nav-link @ManagerNavPages.ShareNavClass(ViewContext)" id="share" asp-page="./Share">Get Started</a></li>
+    }
+    else
+    {
+        <li class="nav-item"><a class="nav-link @ManagerNavPages.RequestNavClass(ViewContext)" id="request" asp-page="./ManagerRequest">Request Access</a></li>
+    }
+</ul>
+
+<style>
+    .nav-pills{
+        background-color: #32363A;
+    }
+    
+    .nav a{
+        color: white;
+    }
+    
+    .nav-link.active {
+        background-color: black !important;
+    }
+</style>

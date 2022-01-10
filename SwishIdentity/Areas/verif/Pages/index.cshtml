@@ -1,0 +1,54 @@
+@page
+@model SwishIdentity.Areas.Verif.Pages.IndexModel
+@{
+    Layout = "_Layout.cshtml";
+    ViewData["Title"] = "Online Identity Portal";
+    ViewData["ActivePage"] = VerifNavPages.Index;
+}
+<div class="verif-container shadow">
+    <h4>@ViewData["Title"]</h4>
+    <div class="row">
+        <br><br>
+
+        <br><br>
+        <div class="col-md-auto">
+            <p>To verify your identity with <b>@Model.Manager.BusinessName</b> please click the authorize button below.</p>
+            <ul title="Permission Grants">
+                <li>Temporary identity document access.</li>
+                <li>Fragmented data legal storage by Swish.</li>
+                <li>Basic profile information updates.</li>
+            </ul>
+            
+            <br><br>
+            <form id="claim-form" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <input type="checkbox" required="required" data-val="true" data-val-required="The IsChecked field is required." id="IsChecked" name="IsChecked" value="false">
+                    <input name="IsChecked" type="hidden" value="false">
+                    <label>I agree to connect my identity profile with <b>@Model.Manager.BusinessName</b> on Swish.</label>
+                </div>
+                <button id="create-claim-button" type="submit" class="btn btn-primary">Connect Online Identity</button>
+            </form>
+        </div>
+        <br>
+    </div>
+</div>
+<div class="col-md-3">
+    <img src="~/Swishstonk.png" alt="Swish stonk logo">
+</div>
+
+
+<style>
+    .btn{
+        background-color: black;
+        color: white;
+    }
+    
+    .btn:hover{
+        color: grey;
+    }
+</style>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

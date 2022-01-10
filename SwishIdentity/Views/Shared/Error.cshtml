@@ -1,0 +1,31 @@
+﻿@model ErrorViewModel
+@{
+    ViewData["Title"] = "Error";
+}
+
+<h1 class="text-danger">Error.</h1>
+<h2 class="text-danger">An error occurred while processing your request.</h2>
+
+@if (Model.ShowRequestId)
+{
+    <p>
+        <strong>Request ID:</strong> <code>@Model.RequestId</code>
+    </p>
+}
+
+
+<div style="text-align: center;">
+    <h2>404</h2>
+    <form action="/home" class="inline">
+        <button class="btn btn-dark btn-group-lg">MARS (Home) IS THIS WAY</button>
+    </form>
+</div>
+
+
+<style>
+    h2 {
+      font-weight: bold;
+      color: #fff;
+      font-size: 150px;
+    }
+</style>

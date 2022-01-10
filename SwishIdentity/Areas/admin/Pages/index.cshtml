@@ -1,0 +1,71 @@
+@page
+@using SwishIdentity.Data
+@model SwishIdentity.Areas.Admin.Pages.IndexModel
+@inject UserManager<SwishUser> _usrMang
+@{
+    Layout = "_Layout.cshtml";
+    ViewData["Title"] = "Admin";
+    //ViewData["ActivePage"] = AdminNavPages.Index;
+}
+
+<h4>@ViewData["Title"]</h4>
+<div class="row">
+    <div class="col-md-6">
+        <p>Admin Menu</p>
+        <a class="btn btn-primary" asp-page="./ManagerReview">Manager Review</a>
+        <br>
+    </div>
+
+    <br>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Profiles[0].Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Profiles[0].UserId)
+            </th>
+            <th>
+                @Html.DisplayName("Roles")
+            </th>
+            <th>
+                More Options
+                @*buttons*@
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in Model.Profiles)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => _usrMang.GetRolesAsync(_usrMang.FindByIdAsync(item.UserId).Result).Result)
+                </td>
+                <td>
+                    <a class="table-button" asp-page="./VerificationReview" asp-route-id="@item.ProfileId">Review</a> |
+                    <a class="table-button" asp-page="./VerifHistory" asp-route-id="@item.ProfileId">History</a>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+
+</div>
+
+<style>
+    .table-button {
+        color: black;
+    }
+</style>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial"/>
+}

@@ -1,0 +1,48 @@
+@page
+@model SwishIdentity.Areas.Verif.Pages.MangLookupModel
+@{
+    Layout = "_Layout.cshtml";
+    ViewData["Title"] = "Swish Manager Lookup";
+    //ViewData["ActivePage"] = VerifNavPages.MangLookupModel;
+}
+<div class="verif-container shadow">
+    <h4>@ViewData["Title"]</h4>
+    <div class="row">
+        <br><br>
+        <div class="col-md-3">
+            <p><b>Want to verify with this manager?</b></p>
+            <br>
+            <a class="btn btn-primary" asp-area="Verif" 
+               asp-page="./Index" asp-route-id="@Model.Manager.ManagerId">Connect With Manager</a>
+            <br>
+        </div>
+        <div class="col-md-auto">
+            <small><b>Business Name (DBA)</b></small><br>
+            <small>@Model.Manager.BusinessName</small>
+        
+            <br><small><b>Business Email</b></small><br>
+            <small>@Model.Manager.BusinessEmail</small>
+        
+            <br><small><b>Manager Id</b></small><br>
+            <small>@Model.Manager.ManagerId</small>
+        
+            <br><small><b>Verification Status</b></small><br>
+            <small>@Model.ManagerRoles</small>
+        </div>
+    </div>
+
+    <style>
+    .btn{
+        background-color: black;
+        color: white;
+    }
+    
+    .btn:hover{
+        color: grey;
+    }
+</style>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

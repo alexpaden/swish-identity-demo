@@ -1,0 +1,34 @@
+﻿@{
+    if (ViewData.TryGetValue("ParentLayout", out var parentLayout))
+    {
+        Layout = (string) parentLayout;
+    }
+    else
+    {
+        Layout = "/Views/Shared/_Layout.cshtml";
+    }
+}
+
+<h2>Admin Panel</h2>
+
+<div>
+    <h4>Admin Review Menu</h4>
+    <hr/>
+    <div class="row">
+
+        <div class="col-md-9">
+            @RenderBody()
+        </div>
+    </div>
+</div>
+
+<style>
+    .btn-primary {
+        background-color: black;
+        color: white;
+    }
+</style>
+
+@section Scripts {
+    @RenderSection("Scripts", false)
+}

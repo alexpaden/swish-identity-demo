@@ -1,0 +1,40 @@
+@page
+@model CreateModel
+@{
+    Layout = "_Layout.cshtml";
+    ViewData["Title"] = "Create New Swish Profile";
+    ViewData["ActivePage"] = ProfileNavPages.Create;
+}
+<div class="profile-container shadow">
+    <div class="row">
+        <h4>@ViewData["Title"]</h4>
+        <p>
+            <small>
+                * A swish online identity profile includes the information below and is 
+                shared with managers collecting identity for their online business.
+            </small>
+        </p>
+        <br>
+        <div class="col-md-6">
+            <form id="profile-update-form" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Input.FullName">Full Name</label>
+                    <input asp-for="Input.FullName" class="form-control"/>
+                    <br>
+                    <label asp-for="Input.Country">Country</label>
+                    <input asp-for="Input.Country" class="form-control"/>
+                    <br>
+                    <label asp-for="Input.SharedEmail">
+                        Shared Email <i>(visible to managers)</i>
+                    </label>
+                    <input asp-for="Input.SharedEmail" class="form-control"/>
+                </div>
+                <button id="update-profile-button" type="submit" class="btn btn-primary">Save</button>
+            </form>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

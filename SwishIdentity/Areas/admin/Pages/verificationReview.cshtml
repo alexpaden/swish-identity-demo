@@ -1,0 +1,100 @@
+@page
+@using SwishIdentity.Areas.Admin.Pages
+@model SwishIdentity.Areas.Admin.Pages.VerificationReviewModel
+@{
+    Layout = "_Layout.cshtml";
+    ViewData["ActivePage"] = AdminNavPages.VerificationReview;
+}
+@{
+    ViewData["Title"] = "Verification Review";
+}
+
+<h4>@ViewData["Title"]</h4>
+<div class="col-md-3">
+    <partial name="_AdminNav"/>
+</div>
+<br><br>
+<div class="row">
+    @if (Model.Profile != null)
+    {
+        <div class="col-md-6">
+            <small>
+                Shared Email:
+                @Model.Profile.SharedEmail
+            </small>
+            <br>
+            <small>
+                Account Email:
+                @Model.UserEmail
+            </small>
+            <br>
+            <small>
+                Profile ID:
+                @Model.Profile.ProfileId
+            </small>
+
+            <br><br>
+
+            <div class="roles">
+                <h5>Current User Roles</h5>
+                @foreach (var role in Model.CurrentRoles)
+                {
+                    <li>@role</li>
+                }
+            </div>
+
+            <br><br>
+
+            <h5>Profile Content</h5>
+            <ul>
+                <ul>Name</ul>
+                <li>
+                    <span>@Model.Profile.Name</span>
+                </li>
+                <ul>Country</ul>
+                <li>
+                    <span>@Model.Profile.Country</span>
+                </li>
+                <ul>Front URL</ul>
+                <li>
+                    <span>@Model.Profile.ImgFrontUrl</span>
+                </li>
+                <ul>Back URL</ul>
+                <li>
+                    <span>@Model.Profile.ImgRearUrl</span>
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-6">
+            <div>
+                <h5>Reviewer Verdict</h5>
+                <form id="verify-review" asp-page="VerifyVerificationReview" asp-route-id="@Model.Profile.ProfileId" method="post" class="form-group">
+                    <button class="btn btn-primary" type="submit">Verify</button>
+                </form>
+                <form id="verify-review" asp-page="UnverifyVerificationReview" asp-route-id="@Model.Profile.ProfileId" method="post" class="form-group">
+                    <button class="btn btn-primary" type="submit">Unverify</button>
+                </form>
+            </div>
+        </div>
+
+        <div>
+            <h5>Identity Documents</h5>
+            <small>front</small><br>
+            <img id="img1" alt="Image1.png" src="@Url.Content("/tempprofile.png")">
+            <br><small>back</small><br>
+            <img id="img1" alt="Image1.png" src="@Url.Content("/tempprofile.png")">
+        </div>
+    }
+    else if (Model.UserExist)
+    {
+        <strong>The user exists but the profile does not.</strong>
+    }
+    else
+    {
+        <strong>The profile/user do not exist.</strong>
+    }
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial"/>
+}

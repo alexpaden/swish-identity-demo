@@ -1,0 +1,51 @@
+@page
+@model SwishIdentity.Areas.Manager.Pages.ReviewModel
+@{
+    Layout = "_Layout.cshtml";
+    ViewData["Title"] = "Review Profile";
+}
+<div class="manager-container shadow">
+    <h4>@ViewData["Title"]</h4>
+    <div class="row">
+        <div class="col-md-auto">
+            <p>Review the identity information of your connected Swish Profile.</p>
+            <br>
+            <small>
+                Profile ID:
+                @Model.Profile.ProfileId
+            </small>
+            <br><br>
+
+            <h5>Profile Content</h5>
+            <ul>
+                <li>Name</li>
+                <ul><span>@Model.Profile.Name</span></ul>
+                <li>Country</li>
+                <ul><span>@Model.Profile.Country</span></ul>
+                <li>Front URL</li>
+                <ul><span>@Model.Profile.ImgFrontUrl</span></ul>
+                <li>Back URL</li>
+                <ul><span>@Model.Profile.ImgRearUrl</span></ul>
+            </ul>
+        
+            <br><br>
+            <h5>Identity Documents</h5>
+            <small>front</small><br>
+            <img id="img1" alt="Image1.png" src="@Url.Content("/tempprofile.png")">
+            <br><small>back</small><br>
+            <img id="img1" alt="Image1.png" src="@Url.Content("/tempprofile.png")">
+
+        </div>
+        <div class="col-md-4">
+            <img src="~/swish8ball.png" width="100" height="100">
+            <h4>Online Identity</h4>
+            <h6><i>By Swish</i></h6>
+        
+            <br><br>
+            <b>Status:</b> @Model.Roles
+        </div>
+    </div>
+</div>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

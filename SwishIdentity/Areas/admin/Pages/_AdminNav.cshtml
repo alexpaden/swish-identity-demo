@@ -1,0 +1,25 @@
+@using SwishIdentity.Areas.Admin.Pages
+
+<ul class="nav nav-pills flex-column">
+    <li class="nav-item">
+        <a class="nav-link @AdminNavPages.ReviewNavClass(ViewContext)"
+           id="" asp-page="./VerificationReview"
+           asp-route-id="@Model.Profile.ProfileId">
+            Verification Review
+        </a>
+        <a class="nav-link @AdminNavPages.HistoryNavClass(ViewContext)"
+           asp-page="./VerifHistory" asp-route-id="@Model.Profile.ProfileId">
+            Verification History
+        </a>
+    </li>
+</ul>
+
+<style>
+    .nav-pills{
+        background-color: #32363A;
+    }
+    
+    .nav a{
+        color: white;
+    }
+</style>

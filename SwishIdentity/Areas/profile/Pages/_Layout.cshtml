@@ -1,0 +1,40 @@
+﻿@{
+    if (ViewData.TryGetValue("ParentLayout", out var parentLayout))
+    {
+        Layout = (string)parentLayout;
+    }
+    else
+    {
+        Layout = "/Views/Shared/_Layout.cshtml";
+    }
+}
+
+<div>
+    <hr />
+    <div class="row">
+        <div class="col-md-3 navigation">
+            <partial name="_ProfileNav" />
+        </div>
+        <div class="col-md-9">
+            @RenderBody()
+        </div>
+    </div>
+</div>
+
+<style>
+    .btn-primary {
+        background-color: black;
+        color: white;
+    }
+    .navigation {
+        margin-top: 5%;
+    }
+    .profile-container {
+        margin: 5%;
+        padding: 5%;
+    }
+</style>
+
+@section Scripts {
+    @RenderSection("Scripts", required: false)
+}

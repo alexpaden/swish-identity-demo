@@ -1,0 +1,59 @@
+@page
+@model SwishIdentity.Areas.Manager.Pages.IndexModel
+@{
+    Layout = "_Layout.cshtml";
+    ViewData["Title"] = "Manager";
+    ViewData["ActivePage"] = ManagerNavPages.Index;
+}
+<div class="manager-container shadow">
+    <h4>@ViewData["Title"]</h4>
+    <partial name="_StatusMessage" model="Model.StatusMessage"/>
+    <div>
+        <div class="row">
+            <div class="col-md-6">
+                <p>Manager's Online Identity Panel</p>
+                <a class="btn btn-default" asp-page="./Share">Get Started</a>
+                <br><br><br>
+            </div>
+        </div>
+        <div class="row">
+            <h4>Users who have connected with you</h4>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Full Name</th>
+                    <th>Country</th>
+                    <th>Email</th>
+                    <th>More Information @*buttons*@</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach (var item in Model.Profiles)
+                {
+                    <tr>
+                        <td>@item.Name</td>
+                        <td>@item.Country</td>
+                        <td>@item.SharedEmail</td>
+                        <td>
+                            <a class="table-button" asp-page="./Review" asp-route-id="@item.ProfileId">Review</a>
+                        </td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<style>
+    .btn{
+        background-color: black;
+        color: white;
+    }
+    .btn:hover{
+        color: grey;
+    }
+</style>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial"/>
+}
