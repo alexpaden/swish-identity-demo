@@ -17,6 +17,7 @@ using Microsoft.Net.Http.Headers;
 using SwishIdentity.Data;
 using SwishIdentity.Tools.DependencyService;
 using SameSiteMode = Microsoft.AspNetCore.Http.SameSiteMode;
+using dotenv.net;
 
 namespace SwishIdentity
 {
@@ -33,15 +34,17 @@ namespace SwishIdentity
 
         public void ConfigureServices(IServiceCollection services)
         {
+            DotEnv.Load();
+            var envVars = DotEnv.Read();
             if (HostingEnvironment.IsDevelopment())
             {
                 services.AddDbContext<SwishDbContext>(opt =>
-                    opt.UseNpgsql(Configuration.GetConnectionString("DevPub")));
+                opt.UseNpgsql(envVars["DEVPUB"]));
             }
             else
             {
                 services.AddDbContext<SwishDbContext>(opt =>
-                    opt.UseNpgsql(Configuration.GetConnectionString("VpcPub")));
+                    opt.UseNpgsql(envVars["DEVPUB"]));
             }
             services.AddIdentity<SwishUser, IdentityRole>(options =>
                 { 

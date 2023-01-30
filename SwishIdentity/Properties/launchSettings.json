@@ -1,4 +1,4 @@
-﻿{
+{
   "iisSettings": {
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
@@ -17,7 +17,6 @@
     },
     "SwishProduction": {
       "commandName": "Project",
-      "launchBrowser": false,
       "applicationUrl": "https://localhost:5001;",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Production"
@@ -25,7 +24,6 @@
     },
     "SwishDev": {
       "commandName": "Project",
-      "launchBrowser": false,
       "applicationUrl": "https://localhost:5001;",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"

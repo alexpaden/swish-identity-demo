@@ -15,6 +15,7 @@ namespace SwishIdentity.Data.EmailService
     {
         public async Task<Response> VerifySwishEmail(string callbackUrl, string email)
         {
+            //deprecating this whole Service and removing from .Data, was meant for quick sampling
             //var apiKey = Environment.GetEnvironmentVariable("NAME_OF_THE_ENVIRONMENT_VARIABLE_FOR_YOUR_SENDGRID_KEY");
             var from = new EmailAddress("alex@swishid.com", "Swish Team");   
             var to = new EmailAddress(email, "Swish User");
